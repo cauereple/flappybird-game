@@ -12,9 +12,9 @@
 	<artifactId>flappybird</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>flappybird</name>
-	<description>Flappy Bird game</description>
+	<description>Flappy Bird Game</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
