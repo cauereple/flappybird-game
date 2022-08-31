@@ -138,38 +138,6 @@ public class FlappyBird implements Jogo {
         }
     }
 
-        /*
-        timerCano.tique(dt);
-
-        //MOVIMENTO PASSARO
-        passaro.atualiza(dt);
-
-        if(passaro.y + 24 >= getAltura() - 112) {
-            System.out.println("GAME OVER NO CHÃO");
-        } else if (passaro.y <= 0) {
-            System.out.println("GAME OVER NO CEU");
-            
-        }
-
-        //MOVIMENTO CANO
-        for(Cano cano : canos) {
-            cano.atualiza(dt);
-
-            if(passaro.box.intersecao(cano.boxcima) != 0 || passaro.box.intersecao(cano.boxbaixo) != 0) {
-                System.out.println("GAME OVER NO CANO");
-            }
-        }
-         
-
-        //REMOVENDO O CANO DEPOIS QUE PASSAR PARA A ESQUERDA DA TELA
-        if(canos.size() > 0 && canos.get(0).x < - 60) {
-            canos.remove(0);
-        }
-
-
-    }
-    */
-
     @Override
     public void tecla(String tecla) {
         switch(game_state) {
