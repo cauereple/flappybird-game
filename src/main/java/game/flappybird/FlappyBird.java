@@ -1,5 +1,6 @@
 package game.flappybird;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 public class FlappyBird implements Jogo {
@@ -14,9 +15,15 @@ public class FlappyBird implements Jogo {
 
     public Passaro passaro;
 
+    public ArrayList<Cano> canos = new ArrayList<Cano>();
+
+    //ADICIONA OS ELEMENTOS
     public FlappyBird(){
         passaro = new Passaro (35, (getAltura()-112)/2);
+
+        canos.add(new Cano(getLargura()-200, getAltura()-112, -gvx));
     }
+
     @Override
     public String getTitulo() {
         return "Flappy Bird Game";
@@ -54,6 +61,7 @@ public class FlappyBird implements Jogo {
 
     }
 
+    //DESENHA OS ELEMENTOS
     @Override
     public void desenhar(Tela tela) {
         //BACKGROUND
@@ -66,8 +74,14 @@ public class FlappyBird implements Jogo {
         tela.imagem("flappy.png", 292, 0, 308, 112, 0, 308 -ground_offset, getAltura() - 112);
         tela.imagem("flappy.png", 292, 0, 308, 112, 0, 308*2 -ground_offset, getAltura() - 112);
 
+        //CANO
+        for(Cano cano : canos) {
+            cano.desenha(tela);
+        }
+        
         //BIRD
         passaro.desenhar(tela);
+
     }
 
     public static void main(String[] args) {
