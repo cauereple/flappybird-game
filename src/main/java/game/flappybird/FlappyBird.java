@@ -18,11 +18,23 @@ public class FlappyBird implements Jogo {
     public ArrayList<Cano> canos = new ArrayList<Cano>();
     public Random gerador = new Random();
 
+    public Timer timerCano;
+
     //ADICIONA OS ELEMENTOS
     public FlappyBird(){
         passaro = new Passaro (35, (getAltura()-112)/2);
 
-        //canos.add(new Cano(getLargura() + 10, gerador.nextInt(getAltura() - 112 - Cano.HOLESIZE), -gvx));
+        timerCano = new Timer(3, true, addCano());
+        
+        addCano().executa();
+    }
+
+    private Acao addCano() {
+        return new Acao() {
+            public void executa() {
+                canos.add(new Cano(getLargura() + 10, gerador.nextInt(getAltura() - 112 - Cano.HOLESIZE), -gvx));
+            }
+        };
     }
 
     @Override
@@ -57,9 +69,12 @@ public class FlappyBird implements Jogo {
         background_offset += dt*bvx;
         background_offset = background_offset%288;
 
+        timerCano.tique(dt);
+
         //MOVIMENTO PASSARO
         passaro.atualiza(dt);
 
+        //MOVIMENTO CANO
         for(Cano cano : canos) {
             cano.atualiza(dt);
         }

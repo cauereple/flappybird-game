@@ -19,9 +19,13 @@ public class Cano {
     public void desenha(Tela tela) {
 
         //CANO DE CIMA
-        tela.imagem("flappy.png", 604, 0, 52, 270, 0, x, y - 270);
+        tela.imagem("flappy.png", 604, 0, 52, 270, 0, x, y - 290);
+
+        tela.imagem("flappy.png", 604, 0, 52, 242, 0, x, y - HOLESIZE - 200);
 
         //CANO DE BAIXO
         tela.imagem("flappy.png", 660, 0, 52, 242, 0, x, y + HOLESIZE);
+
+        tela.imagem("flappy.png", 604, 0, 52, 232, 0, x, y + HOLESIZE + 200);
     }
 }
